@@ -39,7 +39,7 @@ let Tlist_Sort_Type = "name"
 nmap <F3> :TlistToggle<cr>
 set tags=tags;/
 
-set guioptions=emtTrL
+set guioptions=emtTr
 set showtabline=2
 
 set statusline=%Y\ /\ %{&ff}\ [char=\%03.3b/0x\%02.2B][pos=%l/%L,%v][%p%%]\ %m%r%h%w\ %F
