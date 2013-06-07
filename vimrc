@@ -30,7 +30,7 @@ set nobk
 set nowb
 set noswf
 
-set viminfo='50,<1000,s100,n/home/mario/.viminfo
+set viminfo='50,<1000,s100,n$HOME/.viminfo
 colorscheme mario
 set guifont=Courier\ New\ 9
 
