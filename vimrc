@@ -105,3 +105,6 @@ nmap <C-kMultiply>f :CCTreeTraceForward<CR><CR>
 nmap <S-Home> :CCTreeTraceReverse<CR><CR>
 nmap <S-End>  :CCTreeTraceForward<CR><CR>
 
+" pathogen
+execute pathogen#infect()
+
