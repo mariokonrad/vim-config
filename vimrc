@@ -108,3 +108,7 @@ nmap <S-End>  :CCTreeTraceForward<CR><CR>
 " pathogen
 execute pathogen#infect()
 
+" nerdtree
+autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
