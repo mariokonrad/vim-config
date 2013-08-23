@@ -30,10 +30,6 @@ set nobk
 set nowb
 set noswf
 
-" local vim configuration (used for per-project configuration)
-set exrc
-set secure
-
 set viminfo='50,<1000,s100,n$HOME/.viminfo
 colorscheme mario
 set guifont=Courier\ New\ 9
@@ -115,4 +111,11 @@ execute pathogen#infect()
 " nerdtree
 autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
+
+" local vim configuration (used for per-project configuration)
+set exrc
+set secure
+if filereadable(".vimrc.local")
+	so .vimrc.local
+endif
 
