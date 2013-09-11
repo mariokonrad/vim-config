@@ -6,6 +6,9 @@ set langmenu=none
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
+" ignore whitespaces while diff
+set diffopt+=iwhite
+
 " misc settings
 set sw=4
 set ts=4
