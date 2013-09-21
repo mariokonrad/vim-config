@@ -112,7 +112,7 @@ nmap <S-End>  :CCTreeTraceForward<CR><CR>
 execute pathogen#infect()
 
 " nerdtree
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
 " local vim configuration (used for per-project configuration)
