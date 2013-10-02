@@ -1,5 +1,4 @@
 
-set background=light
 hi clear
 if exists("syntax_on")
     syntax reset
@@ -8,9 +7,9 @@ let g:colors_name="mario"
 
 "  Type        GUI FG           GUI BG           GUI             CTERM FG            CTERM BG            CTERM
 
-hi LineNr      guifg=black      guibg=#e0e0e0                    ctermfg=white       ctermbg=grey
-hi Normal      guifg=black      guibg=#f0f0f0                    ctermfg=black       ctermbg=white
-hi Comment     guifg=#006000                                     ctermfg=darkgreen
+hi LineNr      guifg=black      guibg=#e0e0e0                    ctermfg=white       ctermbg=white
+hi Normal      guifg=black      guibg=white                      ctermfg=black       ctermbg=white
+hi Comment     guifg=#006000                                     ctermfg=darkgreen   ctermbg=white
 hi PreProc     guifg=purple                                      ctermfg=darkred
 hi Identifier  guifg=darkblue                                    ctermfg=darkblue
 hi Constant    guifg=#d00000                                     ctermfg=darkred

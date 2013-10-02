@@ -6,6 +6,16 @@ set langmenu=none
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
+" appearance
+if has('gui_running')
+	colorscheme mario
+	set guifont=Courier\ New\ 9
+	set background=light
+else
+	colorscheme delek
+	set background=dark
+endif
+
 " ignore whitespaces while diff
 set diffopt+=iwhite
 
@@ -32,10 +42,7 @@ set incsearch
 set nobk
 set nowb
 set noswf
-
 set viminfo='50,<1000,s100,n$HOME/.viminfo
-colorscheme mario
-set guifont=Courier\ New\ 9
 
 " ctags + vim-taglist
 let Tlist_Sort_Type = "name"
