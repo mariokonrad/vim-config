@@ -8,11 +8,13 @@ source $VIMRUNTIME/menu.vim
 
 " appearance
 if has('gui_running')
-	colorscheme mario
+"	colorscheme mario
+	colorscheme solarized
 	set guifont=Courier\ New\ 9
-	set background=light
+	set background=dark
 else
-	colorscheme delek
+	let g:solarized_termcolors=256
+	colorscheme solarized
 	set background=dark
 endif
 
@@ -52,10 +54,11 @@ set tags=tags;/
 set guioptions=emtTr
 set showtabline=2
 
+" status line
 set statusline=%Y\ /\ %{&ff}\ [char=\%03.3b/0x\%02.2B][pos=%l/%L,%v][%p%%]\ %m%r%h%w\ %F
 set laststatus=2
 
-" firefox-like tab switching
+" tab switching
 nmap <C-a> :tabnew<cr>
 imap <C-a> <ESC> :tabnew<cr>i
 
@@ -91,7 +94,7 @@ au FileType xml setlocal foldmethod=syntax
 
 " listchars (dot: "ctrl-k .M", quote: "ctrl-k >>", pi: "ctrl-k PI")
 set list listchars=tab:»·
-highlight NonText ctermfg=7 guifg=gray
+highlight NonText ctermfg=7 guifg=lightgray
 highlight SpecialKey ctermfg=8 guifg=lightgray
 
 " highlight trailing spaces and spaced before tabs
