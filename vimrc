@@ -13,8 +13,8 @@ if has('gui_running')
 	set guifont=Courier\ New\ 9
 	set background=dark
 else
-	let g:solarized_termcolors=256
-	colorscheme solarized
+"	colorscheme reloaded
+	colorscheme hemisu
 	set background=dark
 endif
 
