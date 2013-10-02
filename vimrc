@@ -8,7 +8,7 @@ source $VIMRUNTIME/menu.vim
 
 " appearance
 if has('gui_running')
-"	colorscheme mario
+	let g:solarized_termcolors=256
 	colorscheme solarized
 	set guifont=Courier\ New\ 9
 	set background=dark
@@ -93,9 +93,13 @@ let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
 
 " listchars (dot: "ctrl-k .M", quote: "ctrl-k >>", pi: "ctrl-k PI")
-set list listchars=tab:»·
-highlight NonText ctermfg=7 guifg=lightgray
-highlight SpecialKey ctermfg=8 guifg=lightgray
+if has('gui_running')
+	" no listchars in GUI, because it does not look good on solarized theme
+else
+	set list listchars=tab:»·
+	highlight NonText ctermfg=lightgray guifg=lightgray
+	highlight SpecialKey ctermfg=lightgray guifg=lightgray
+endif
 
 " highlight trailing spaces and spaced before tabs
 highlight ExtraWhitespace ctermbg=red guibg=red
