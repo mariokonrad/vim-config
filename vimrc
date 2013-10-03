@@ -9,6 +9,8 @@ source $VIMRUNTIME/menu.vim
 " appearance
 if has('gui_running')
 	let g:solarized_termcolors=256
+	let g:solarized_visibility="low"
+	let g:solarized_contrast="high"
 	colorscheme solarized
 	set guifont=Courier\ New\ 9
 	set background=dark
@@ -94,7 +96,7 @@ au FileType xml setlocal foldmethod=syntax
 
 " listchars (dot: "ctrl-k .M", quote: "ctrl-k >>", pi: "ctrl-k PI")
 if has('gui_running')
-	" no listchars in GUI, because it does not look good on solarized theme
+	set list listchars=tab:»·
 else
 	set list listchars=tab:»·
 	highlight NonText ctermfg=lightgray guifg=lightgray
