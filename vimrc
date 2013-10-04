@@ -18,6 +18,7 @@ else
 "	colorscheme reloaded
 	colorscheme hemisu
 	set background=dark
+	hi Search ctermfg=black ctermbg=yellow
 endif
 
 " ignore whitespaces while diff
