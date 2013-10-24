@@ -83,6 +83,9 @@ autocmd BufWritePost *.h :TlistUpdate
 autocmd BufWritePost *.cpp :TlistUpdate
 autocmd BufWritePost *.hpp :TlistUpdate
 
+" prefer markdown over modula
+autocmd BufRead,BufNewFile *.md set filetype=markdown
+
 " no bells, no visual indication
 set vb t_vb=
 
@@ -93,7 +96,7 @@ map <F4> :grep -Ernw --include=*.c* --include=*.h* --exclude-dir=src_old <cword>
 
 " xml folding
 let g:xml_syntax_folding=1
-au FileType xml setlocal foldmethod=syntax
+autocmd FileType xml setlocal foldmethod=syntax
 
 " listchars (dot: "ctrl-k .M", quote: "ctrl-k >>", pi: "ctrl-k PI")
 if has('gui_running')
