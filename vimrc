@@ -136,8 +136,8 @@ execute pathogen#infect()
 map <C-n> :NERDTreeToggle<CR>
 
 " clang-format
-map <C-K> :pyf $HOME/work/llvm/llvm/tools/clang/tools/clang-format/clang-format.py<CR>
-imap <C-K> <ESC>:pyf $HOME/work/llvm/llvm/tools/clang/tools/clang-format/clang-format.py<CR>i
+map <C-K> :pyf $HOME/local/llvm/bin/clang-format.py<CR>
+imap <C-K> <ESC>:pyf $HOME/local/llvm/bin/clang-format.py<CR>i
 
 " local vim configuration (used for per-project configuration)
 set exrc
