@@ -16,9 +16,17 @@ if has('gui_running')
 	set background=dark
 else
 "	colorscheme reloaded
-	colorscheme hemisu
+
+"	colorscheme hemisu
+"	set background=dark
+"	hi Search ctermfg=black ctermbg=yellow
+
+	let g:solarized_termcolors=256
+	let g:solarized_visibility="low"
+	let g:solarized_contrast="high"
+	colorscheme solarized
 	set background=dark
-	hi Search ctermfg=black ctermbg=yellow
+	hi Search ctermfg=yellow ctermbg=yellow
 endif
 
 " ignore whitespaces while diff
@@ -70,6 +78,12 @@ imap <C-tab> <ESC> :tabnext<cr>i
 
 nmap <C-S-tab> :tabprevious<cr>
 imap <C-S-tab> <ESC> :tabprevious<cr>i
+
+" tab switching for vim, which cannot handle Ctrl-Tab
+nmap <C-RIGHT> :tabnext<cr>
+imap <C-RIGHT> <ESC> :tabnext<cr>i
+nmap <C-LEFT> :tabprevious<cr>
+imap <C-LEFT> <ESC> :tabprevious<cr>i
 
 " autocommand to disable autocomment
 autocmd FileType c,cpp setlocal fo=
