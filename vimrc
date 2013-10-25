@@ -7,6 +7,7 @@ source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
 " appearance
+set t_Co=256
 if has('gui_running')
 	let g:solarized_termcolors=256
 	let g:solarized_visibility="low"
@@ -26,7 +27,7 @@ else
 	let g:solarized_contrast="high"
 	colorscheme solarized
 	set background=dark
-	hi Search ctermfg=yellow ctermbg=yellow
+	hi Search ctermfg=yellow ctermbg=black
 endif
 
 " ignore whitespaces while diff
@@ -117,8 +118,8 @@ if has('gui_running')
 	set list listchars=tab:»·
 else
 	set list listchars=tab:»·
-	highlight NonText ctermfg=lightgray guifg=lightgray
-	highlight SpecialKey ctermfg=lightgray guifg=lightgray
+	highlight NonText ctermfg=gray guifg=lightgray
+	highlight SpecialKey ctermfg=gray guifg=lightgray
 endif
 
 " highlight trailing spaces and spaced before tabs
