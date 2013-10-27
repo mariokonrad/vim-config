@@ -80,12 +80,6 @@ imap <C-tab> <ESC> :tabnext<cr>i
 nmap <C-S-tab> :tabprevious<cr>
 imap <C-S-tab> <ESC> :tabprevious<cr>i
 
-" tab switching for vim, which cannot handle Ctrl-Tab
-nmap <C-RIGHT> :tabnext<cr>
-imap <C-RIGHT> <ESC> :tabnext<cr>i
-nmap <C-LEFT> :tabprevious<cr>
-imap <C-LEFT> <ESC> :tabprevious<cr>i
-
 " autocommand to disable autocomment
 autocmd FileType c,cpp setlocal fo=
 
