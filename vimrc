@@ -113,7 +113,7 @@ if has('gui_running')
 else
 	set list listchars=tab:»·
 	highlight NonText ctermfg=gray guifg=lightgray
-	highlight SpecialKey ctermfg=gray guifg=lightgray
+	highlight SpecialKey ctermfg=236 guifg=lightgray
 endif
 
 " highlight trailing spaces and spaced before tabs
