@@ -433,7 +433,7 @@ function! s:MapKeys()
 
     nnoremap <script> <silent> <buffer> <2-leftmouse> :call <SID>SelectBuffer()<CR>
     nnoremap <script> <silent> <buffer> <CR>          :call <SID>SelectBuffer()<CR>
-    nnoremap <script> <silent> <buffer> <F1>          :call <SID>ToggleHelp()<CR>
+    nnoremap <script> <silent> <buffer> <F2>          :call <SID>ToggleHelp()<CR>
     nnoremap <script> <silent> <buffer> <s-cr>        :call <SID>SelectBuffer("tab")<CR>
     nnoremap <script> <silent> <buffer> B             :call <SID>ToggleOnlyOneTab()<CR>
     nnoremap <script> <silent> <buffer> b             :call <SID>SelectBuffer("ask")<CR>
