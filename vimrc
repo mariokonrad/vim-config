@@ -16,11 +16,11 @@ if has('gui_running')
 	set guifont=Courier\ New\ 9
 	set background=dark
 else
-"	colorscheme reloaded
+	"colorscheme reloaded
 
-"	colorscheme hemisu
-"	set background=dark
-"	hi Search ctermfg=black ctermbg=yellow
+	"colorscheme hemisu
+	"set background=dark
+	"hi Search ctermfg=black ctermbg=yellow
 
 	let g:solarized_termcolors=256
 	let g:solarized_visibility="low"
@@ -33,29 +33,37 @@ endif
 " ignore whitespaces while diff
 set diffopt+=iwhite
 
-" misc settings
-set sw=4
-set ts=4
-set tw=0
-set wm=0
-set sts=0
-set noai
-set nocin
-set nosi
-set hls
+" text editing
+set shiftwidth=4
+set tabstop=4
+set textwidth=0
+set wrapmargin=0
+set softtabstop=0
+set noai  " autoindent
+set nocin " c code identing
+set nosi  " smart ident
 syn on
 set backspace=2
-set fo=
-set foldmethod=marker
+
+" line numbering
 set number
 nmap <C-N><C-N> :set invnumber <CR>
 map <F12> :set number!
 
+" folding
+set foldmethod=marker
+
+" format options
+set fo=
+
 " search settings
+set hls  " highlight search
 set incsearch
-set nobk
-set nowb
-set noswf
+
+" backup and info
+set nobk   " do not keep a backup file after overwriting
+set nowb   " do not keep a backup file before overwriting
+set noswf  " no swapfile
 set viminfo='50,<1000,s100,n$HOME/.viminfo
 
 " ctags + vim-taglist
@@ -121,11 +129,11 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$\| \+\ze\t/
 
 if version >= 702
-  autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
-"  autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-"  autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-"  autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-  autocmd BufWinLeave * call clearmatches()
+	autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
+	"autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+	"autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+	"autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+	autocmd BufWinLeave * call clearmatches()
 endif
 
 " cctree
