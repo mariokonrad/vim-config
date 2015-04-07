@@ -197,7 +197,7 @@ if exists("c_gnu")
 endif
 
 syn keyword	cStructure	struct union enum typedef
-syn keyword	cStorageClass	static register auto volatile extern const
+syn keyword	cStorageClass	static register auto volatile extern const override final
 if exists("c_gnu")
   syn keyword	cStorageClass	inline __attribute__
 endif
@@ -273,6 +273,7 @@ if !exists("c_no_ansi") || exists("c_ansi_constants") || exists("c_gnu")
 endif
 if !exists("c_no_c99") " ISO C99
   syn keyword cConstant true false
+  syn keyword cConstant nullptr
 endif
 
 " Accept %: for # (C99)
