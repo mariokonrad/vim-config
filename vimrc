@@ -155,6 +155,7 @@ map <C-n> :NERDTreeToggle<CR>
 " clang-format
 map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format-3.7.py<CR>
 imap <C-K> <ESC>:pyf /usr/share/vim/addons/syntax/clang-format-3.7.py<CR>i
+map <leader>fm ggVG :pyf /usr/share/vim/addons/syntax/clang-format-3.7.py<CR>
 
 " local vim configuration (used for per-project configuration)
 set exrc
