@@ -157,6 +157,10 @@ map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format-3.7.py<CR>
 imap <C-K> <ESC>:pyf /usr/share/vim/addons/syntax/clang-format-3.7.py<CR>i
 map <leader>fm ggVG :pyf /usr/share/vim/addons/syntax/clang-format-3.7.py<CR>
 
+" youcompleteme
+set completeopt+=preview
+let g:ycm_collect_identifiers_from_tags_files = 1
+
 " local vim configuration (used for per-project configuration)
 set exrc
 set secure
