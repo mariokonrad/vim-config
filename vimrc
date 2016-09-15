@@ -153,13 +153,14 @@ execute pathogen#infect()
 map <C-n> :NERDTreeToggle<CR>
 
 " clang-format
-map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format-3.7.py<CR>
-imap <C-K> <ESC>:pyf /usr/share/vim/addons/syntax/clang-format-3.7.py<CR>i
-map <leader>fm ggVG :pyf /usr/share/vim/addons/syntax/clang-format-3.7.py<CR>
+map <C-f> :pyf /usr/share/vim/addons/syntax/clang-format-3.9.py<CR>
+imap <C-f> <ESC>:pyf /usr/share/vim/addons/syntax/clang-format-3.9.py<CR>i
+map <leader>fm ggVG :pyf /usr/share/vim/addons/syntax/clang-format-3.9.py<CR>
 
 " youcompleteme
 set completeopt+=preview
 let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 " local vim configuration (used for per-project configuration)
 set exrc
