@@ -12,9 +12,9 @@ if has('gui_running')
 	let g:solarized_termcolors=256
 	let g:solarized_visibility="low"
 	let g:solarized_contrast="high"
-	colorscheme solarized
 	set guifont=Courier\ New\ 9
 	set background=dark
+	colorscheme solarized
 else
 	"colorscheme reloaded
 
@@ -135,6 +135,9 @@ if version >= 702
 	"autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 	autocmd BufWinLeave * call clearmatches()
 endif
+
+" include blocker id generator
+command! Genuuid execute "r!uuidgen | sed 's/-//g' | tr 'a-z' 'A-Z'"
 
 " cctree
 command! CTL silent CCTreeLoadDB cscope.out
