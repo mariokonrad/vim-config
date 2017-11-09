@@ -64,7 +64,8 @@ set incsearch
 set nobk   " do not keep a backup file after overwriting
 set nowb   " do not keep a backup file before overwriting
 set noswf  " no swapfile
-set viminfo='50,<1000,s100,n$HOME/.viminfo
+"set viminfo='50,<1000,s100,n$HOME/.viminfo
+set viminfo=""
 
 " ctags + vim-taglist
 let Tlist_Sort_Type = "name"
