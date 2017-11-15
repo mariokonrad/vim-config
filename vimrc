@@ -12,7 +12,8 @@ if has('gui_running')
 	let g:solarized_termcolors=256
 	let g:solarized_visibility="low"
 	let g:solarized_contrast="high"
-	set guifont=Courier\ New\ 9
+	"set guifont=Courier\ New\ 9
+	set anti guifont=Hack\ 9
 	set background=dark
 	colorscheme solarized
 else
@@ -75,8 +76,10 @@ set tags=tags;/
 set guioptions=emtTr
 set showtabline=2
 
-" status line
-set statusline=%Y\ /\ %{&ff}\ [char=\%03.3b/0x\%02.2B][pos=%l/%L,%v][%p%%]\ %m%r%h%w\ %F
+" status line, disable 'statusline=...' when using powerline
+if empty($POWERLINE_ROOT)
+	set statusline=%Y\ /\ %{&ff}\ [char=\%03.3b/0x\%02.2B][pos=%l/%L,%v][%p%%]\ %m%r%h%w\ %F
+endif
 set laststatus=2
 
 " tab switching
@@ -152,14 +155,34 @@ nmap <S-End>  :CCTreeTraceForward<CR><CR>
 " pathogen
 execute pathogen#infect()
 
+" returns a list of buffers
+function! BuffersList()
+	let all = range(0, bufnr('$'))
+	let res = []
+	for b in all
+		if buflisted(b)
+			call add(res, bufname(b))
+		endif
+	endfor
+	return res
+endfunction
+
+" greps in all open buffers
+" found it here: https://vi.stackexchange.com/questions/2904/how-to-show-search-results-for-all-open-buffers
+function! GrepBuffers(expression)
+	exec 'vimgrep/'.a:expression.'/'.join(BuffersList())
+endfunction
+
 " nerdtree
 " autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
 " clang-format
-map <C-f> :pyf /usr/share/vim/addons/syntax/clang-format-3.9.py<CR>
-imap <C-f> <ESC>:pyf /usr/share/vim/addons/syntax/clang-format-3.9.py<CR>i
-map <leader>fm ggVG :pyf /usr/share/vim/addons/syntax/clang-format-3.9.py<CR>
+if !empty($VIM_CLANG_FORMAT)
+	map <C-f> :pyf $VIM_CLANG_FORMAT<CR>
+	imap <C-f> <ESC>:pyf $VIM_CLANG_FORMAT<CR>i
+	map <leader>fm ggVG :pyf $VIM_CLANG_FORMAT<CR>
+endif
 
 " youcompleteme
 set completeopt+=preview
@@ -167,7 +190,12 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 " powerline
-set rtp+=$HOME/.local/lib/python3.5/site-packages/powerline/bindings/vim/
+if !empty($POWERLINE_ROOT)
+	set rtp+=$POWERLINE_ROOT/bindings/vim/
+endif
+
+" todo/fixme/bug list of current buffer, showed in new buffer
+command! Todo noautocmd :call GrepBuffers("TODO\\|FIXME\\|BUG") | cw
 
 " local vim configuration (used for per-project configuration)
 set exrc
