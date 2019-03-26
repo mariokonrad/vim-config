@@ -176,6 +176,11 @@ function! GrepBuffers(expression)
 	exec 'vimgrep/'.a:expression.'/'.join(BuffersList())
 endfunction
 
+" ctrlp
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_root_markers = ['.git']
+
 " nerdtree
 " autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
