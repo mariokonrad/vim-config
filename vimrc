@@ -92,11 +92,14 @@ imap <C-tab> <ESC> :tabnext<cr>i
 nmap <C-S-tab> :tabprevious<cr>
 imap <C-S-tab> <ESC> :tabprevious<cr>i
 
-" autocommand to disable autocomment
+" Makefiles are special, they need hard tabs
+autocmd FileType make setlocal shiftwidth=4 tabstop=4 softtabstop=0 noexpandtab
+
+" disable autocomment for C and C++
 autocmd FileType c,cpp setlocal fo=
 
-" code completion for *.c
-autocmd FileType c runtime! autoload/ccomplete.vim
+" code completion for C and C++
+autocmd FileType c,cpp runtime! autoload/ccomplete.vim
 
 " tag list update on save
 autocmd BufWritePost *.c :TlistUpdate
