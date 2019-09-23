@@ -135,7 +135,7 @@ endif
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$\| \+\ze\t/
 
-if version >= 702
+if v:version >= 702
 	autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
 	"autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 	"autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
@@ -154,6 +154,11 @@ nmap <C-kMultiply>f :CCTreeTraceForward<CR><CR>
 
 nmap <S-Home> :CCTreeTraceReverse<CR><CR>
 nmap <S-End>  :CCTreeTraceForward<CR><CR>
+
+" enable visual debugger, only for vim 8.1 or newer
+if v:version >= 801
+	packadd termdebug
+endif
 
 " pathogen
 execute pathogen#infect()
@@ -180,6 +185,7 @@ endfunction
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_root_markers = ['.git']
+let g:ctrlp_custom_ignore = 'build\|.git'
 
 " nerdtree
 " autocmd vimenter * NERDTree
