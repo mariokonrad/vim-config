@@ -7,8 +7,8 @@ source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
 " appearance
-set t_Co=256
 if has('gui_running')
+	set t_Co=256
 	let g:solarized_termcolors=256
 	let g:solarized_visibility="low"
 	let g:solarized_contrast="high"
@@ -17,17 +17,26 @@ if has('gui_running')
 	set background=dark
 	colorscheme solarized
 else
+	set t_Co=256
+
 	"colorscheme reloaded
 
 	"colorscheme hemisu
 	"set background=dark
 	"hi Search ctermfg=black ctermbg=yellow
 
-	let g:solarized_termcolors=256
-	let g:solarized_visibility="low"
-	let g:solarized_contrast="high"
-	colorscheme solarized
 	set background=dark
+	let g:solarized_use16=1
+	let g:solarized_termcolors=256
+	let g:solarized_degrade=0
+	let g:solarized_visibility="low" " low, normal, high
+	let g:solarized_contrast="high"
+	let g:solarized_diffmode="normal" " low, normal, high
+	let g:solarized_termtrans=0 " 0, 1
+	let g:solarized_italics=1
+	let g:solarized_bold=1
+	let g:solarized_underline=1
+	colorscheme solarized
 	hi Search ctermfg=yellow ctermbg=black
 endif
 
@@ -158,6 +167,7 @@ nmap <S-End>  :CCTreeTraceForward<CR><CR>
 " enable visual debugger, only for vim 8.1 or newer
 if v:version >= 801
 	packadd termdebug
+	nmap <F5> :Termdebug<CR>
 endif
 
 " pathogen
