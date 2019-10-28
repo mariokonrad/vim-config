@@ -96,7 +96,7 @@ map <F12> :set number!
 set foldmethod=marker
 
 " format options
-set formatoptions=
+set formatoptions-=croql
 
 " search settings
 set hlsearch " highlight search
@@ -108,11 +108,16 @@ set nowb   " do not keep a backup file before overwriting
 set noswf  " no swapfile
 set viminfo=""
 
+" pathogen
+if exists(":execute")
+	execute pathogen#infect()
+endif
+
 " ctags + vim-taglist
 if has("eval")
 	let Tlist_Sort_Type = "name"
+	nmap <F3> :TlistToggle<cr>
 endif
-nmap <F3> :TlistToggle<cr>
 set tags=tags;/
 
 " e: tab labels
@@ -122,12 +127,6 @@ set tags=tags;/
 " r: righ-hand scrollbar is always present
 set guioptions=emtTr
 set showtabline=2
-
-" status line, disable 'statusline=...' when using powerline
-if empty($POWERLINE_ROOT)
-	set statusline=%Y\ /\ %{&ff}\ [char=\%03.3b/0x\%02.2B][pos=%l/%L,%v][%p%%]\ %m%r%h%w\ %F
-endif
-set laststatus=2
 
 " tabs control
 nmap <C-a> :tabnew<cr>
@@ -162,8 +161,8 @@ else
 endif
 
 " highlight trailing spaces and spaced before tabs
-highlight ExtraWhitespace ctermbg=red guibg=red
-if has("match")
+if exists(":match")
+	highlight ExtraWhitespace ctermbg=red guibg=red
 	match ExtraWhitespace /\s\+$\| \+\ze\t/
 endif
 
@@ -176,12 +175,12 @@ if v:version >= 702
 endif
 
 " include blocker id generator
-if exists("command")
+if exists(":execute")
 	command! Genuuid execute "r!uuidgen | sed 's/-//g' | tr 'a-z' 'A-Z'"
 endif
 
 " cctree
-if exists("command")
+if exists(":command")
 	command! CTL silent CCTreeLoadDB cscope.out
 	nmap <C-kMultiply>r :CCTreeTraceReverse<CR><CR>
 	nmap <C-kMultiply>f :CCTreeTraceForward<CR><CR>
@@ -195,12 +194,7 @@ if v:version >= 801
 	nmap <F5> :Termdebug<CR>
 endif
 
-" pathogen
-if exists("execute")
-	execute pathogen#infect()
-endif
-
-if exists("function") && exists("command")
+if exists(":function") && exists(":command")
 	" returns a list of buffers
 	function! BuffersList()
 		let all = range(0, bufnr('$'))
@@ -232,9 +226,7 @@ if has("eval")
 endif
 
 " nerdtree
-if exists(':NERDTree')
-	map <C-n> :NERDTreeToggle<CR>
-endif
+silent! map <C-n> :NERDTreeToggle<CR>
 
 " clang-format
 if !empty($VIM_CLANG_FORMAT)
@@ -250,10 +242,13 @@ if has("eval")
 	let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 endif
 
-" powerline
-if !empty($POWERLINE_ROOT)
+" status line, disable 'statusline=...' when using powerline
+if empty($POWERLINE_ROOT)
+	set statusline=%Y\ /\ %{&ff}\ [char=\%03.3b/0x\%02.2B][pos=%l/%L,%v][%p%%]\ %m%r%h%w\ %F
+else
 	set rtp+=$POWERLINE_ROOT/bindings/vim/
 endif
+set laststatus=2
 
 " local vim configuration (used for per-project configuration)
 set exrc
