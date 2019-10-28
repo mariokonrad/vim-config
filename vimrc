@@ -50,10 +50,12 @@ if has("autocmd")
 	filetype plugin on " indent:off
 
 	" disable autocomment for C and C++
-	autocmd FileType c,cpp setlocal fo=
+	autocmd FileType c   set formatoptions=
+	autocmd FileType cpp set formatoptions=
 
 	" code completion for C and C++
-	autocmd FileType c,cpp runtime! autoload/ccomplete.vim
+	autocmd FileType c   runtime! autoload/ccomplete.vim
+	autocmd FileType cpp runtime! autoload/ccomplete.vim
 
 	" prefer markdown over modula
 	autocmd BufRead,BufNewFile *.md set filetype=markdown
@@ -92,8 +94,9 @@ set number
 nmap <C-N><C-N> :set invnumber <CR>
 map <F12> :set number!
 
-" folding
+" folding, default: all unfolded
 set foldmethod=marker
+set foldlevel=99
 
 " format options
 set formatoptions-=croql
