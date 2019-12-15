@@ -238,6 +238,9 @@ if !empty($VIM_CLANG_FORMAT)
 	map <leader>fm ggVG :pyf $VIM_CLANG_FORMAT<CR>
 endif
 
+" gutentags
+let g:gutentags_enabled = 0
+
 " youcompleteme
 set completeopt+=preview
 if has("eval")
