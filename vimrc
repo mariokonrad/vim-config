@@ -194,7 +194,12 @@ endif
 " enable visual debugger, only for vim 8.1 or newer
 if v:version >= 801
 	packadd termdebug
-	nmap <F5> :Termdebug<CR>
+
+	" %:r     : all windows horizontally
+	" <c-w>2j : focus on source window
+	" <c-w>L  : move source window to the right
+	" <c-w>h  : focus back to gdb window
+	nmap <F5> :Termdebug %:r<CR><c-w>2j<c-w>L<c-w>h
 endif
 
 if exists(":function") && exists(":command")
