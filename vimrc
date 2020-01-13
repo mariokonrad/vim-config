@@ -194,6 +194,7 @@ endif
 " enable visual debugger, only for vim 8.1 or newer
 if v:version >= 801
 	packadd termdebug
+	hi debugPC term=reverse ctermbg=4 guibg=darkblue
 
 	" %:r     : all windows horizontally
 	" <c-w>2j : focus on source window
