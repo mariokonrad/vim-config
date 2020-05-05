@@ -255,10 +255,10 @@ if has("eval")
 endif
 
 " status line, disable 'statusline=...' when using powerline
-if empty($POWERLINE_ROOT)
+if empty($POWERLINE_VIM_BINDINGS_DIR)
 	set statusline=%Y\ /\ %{&ff}\ [char=\%03.3b/0x\%02.2B][pos=%l/%L,%v][%p%%]\ %m%r%h%w\ %F
 else
-	set rtp+=$POWERLINE_ROOT/bindings/vim/
+	set rtp+=$POWERLINE_VIM_BINDINGS_DIR
 endif
 set laststatus=2
 
