@@ -8,6 +8,8 @@ if has("eval")
 	source $VIMRUNTIME/menu.vim
 endif
 
+set encoding=utf-8
+
 " appearance
 if has('gui_running')
 	set t_Co=256
