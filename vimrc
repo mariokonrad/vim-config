@@ -130,7 +130,7 @@ set tags=tags;/
 " t: tear off menues
 " T: toolbar
 " r: righ-hand scrollbar is always present
-set guioptions=emtTr
+set guioptions=emtr
 set showtabline=2
 
 " tabs control
@@ -253,7 +253,8 @@ let g:gutentags_enabled = 0
 set completeopt+=preview
 if has("eval")
 	let g:ycm_collect_identifiers_from_tags_files = 1
-	let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+	"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+	let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 endif
 
 " status line, disable 'statusline=...' when using powerline
