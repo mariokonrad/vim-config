@@ -130,7 +130,7 @@ set tags=tags;/
 " t: tear off menues
 " T: toolbar
 " r: righ-hand scrollbar is always present
-set guioptions=emtr
+set guioptions=emtrT
 set showtabline=2
 
 " tabs control
