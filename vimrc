@@ -241,9 +241,9 @@ silent! map <C-n> :NERDTreeToggle<CR>
 
 " clang-format
 if !empty($VIM_CLANG_FORMAT)
-	map <C-f> :pyf $VIM_CLANG_FORMAT<CR>
-	imap <C-f> <ESC>:pyf $VIM_CLANG_FORMAT<CR>i
-	map <leader>fm ggVG :pyf $VIM_CLANG_FORMAT<CR>
+	map <C-f> :py3f $VIM_CLANG_FORMAT<CR>
+	imap <C-f> <ESC>:py3f $VIM_CLANG_FORMAT<CR>i
+	map <leader>fm ggVG :py3f $VIM_CLANG_FORMAT<CR>
 endif
 
 " gutentags
