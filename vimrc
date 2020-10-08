@@ -17,7 +17,7 @@ if has('gui_running')
 	let g:solarized_visibility="low"
 	let g:solarized_contrast="high"
 	"set guifont=Courier\ New\ 9
-	set anti guifont=Hack\ 9
+	set antialias guifont=Hack\ 9
 	set background=dark
 	colorscheme solarized
 else
@@ -42,6 +42,37 @@ else
 	let g:solarized_underline=1
 	colorscheme solarized
 	hi Search ctermfg=yellow ctermbg=black
+endif
+
+" Zoom feature
+if has('gui_running')
+	command! -narg=0 Zi :call ZIn()
+	command! -narg=0 Zo :call ZOut()
+	command! -narg=0 Zr :call ZReset()
+
+	let s:default_guifont=&guifont
+
+	function! ZIn()
+		let l:size = substitute(&guifont, '^\(.*\)\s\(\d\+\)$', '\2', '')
+		let l:size += 1
+		let l:gf = substitute(&guifont, '^\(.*\)\s\(\d\+\)$', '\1 ' . l:size, '')
+		let &guifont=l:gf
+	endfunction
+
+	function! ZOut()
+		let l:size = substitute(&guifont, '^\(.*\)\s\(\d\+\)$', '\2', '')
+		let l:size -= 1
+		let l:gf = substitute(&guifont, '^\(.*\)\s\(\d\+\)$', '\1 ' . l:size, '')
+		let &guifont=l:gf
+	endfunction
+
+	function! ZReset()
+		let &guifont=s:default_guifont
+	endfunction
+
+	nmap <C-PageUp>   :Zi<CR>
+	nmap <C-PageDown> :Zo<CR>
+	nmap <C-Home>     :Zr<CR>
 endif
 
 " ignore whitespaces while diff
